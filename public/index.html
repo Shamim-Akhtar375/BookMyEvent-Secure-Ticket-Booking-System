@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartTicket | Fast & Secure Booking</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <div class="bg-blob"></div>
+
+    <nav>
+        <div class="logo">SmartTicket</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#events">Events</a></li>
+            <li id="nav-auth-links">
+                <a href="login.html" class="btn btn-outline" style="margin-right: 10px;">Login</a>
+                <a href="register.html" class="btn btn-primary">Register</a>
+            </li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Experience the Best <br><span style="color: var(--accent);">Live Events</span></h1>
+        <p>Book tickets for movies, concerts, trains, and buses within seconds. Fast, secure, and reliable.</p>
+        <div class="hero-btns">
+            <a href="#events" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Explore Events</a>
+        </div>
+    </header>
+
+    <section class="container" id="events">
+        <div class="section-title">
+            <h2>Featured Events</h2>
+            <div style="width: 50px; height: 3px; background: var(--accent); margin: 10px auto;"></div>
+        </div>
+        
+        <div class="event-grid" id="event-list">
+            <!-- Events will be loaded here -->
+            <div class="loading">Loading events...</div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div id="booking-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="modal-title">Select Your Seats</h2>
+            <div class="seat-container">
+                <div class="screen"></div>
+                <div class="seats" id="seat-grid"></div>
+                <div class="booking-summary">
+                    <p>Selected Seats: <span id="selected-seats-count">0</span></p>
+                    <p>Total Price: $<span id="total-price">0</span></p>
+                </div>
+                <div style="display: flex; gap: 1rem; width: 100%;">
+                    <button class="btn btn-outline" id="close-modal" style="flex: 1;">Cancel</button>
+                    <button class="btn btn-primary" id="confirm-booking" style="flex: 1;">Confirm Booking</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 SmartTicket. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
