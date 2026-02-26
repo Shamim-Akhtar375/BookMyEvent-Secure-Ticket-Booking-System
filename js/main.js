@@ -23,8 +23,10 @@ function checkAuth() {
 }
 
 async function loadEvents() {
+    console.log("Loading events...");
     const list = document.getElementById('event-list');
     const displayEvents = (events) => {
+        console.log("Displaying events:", events);
         list.innerHTML = events.map(event => `
             <div class="event-card">
                 <img src="${event.image_url || 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80'}" class="event-img" alt="${event.title}">
@@ -43,11 +45,12 @@ async function loadEvents() {
 
     try {
         const res = await fetch('/api/events');
-        if (!res.ok) throw new Error('API unavailable');
+        if (!res.ok) throw new Error(`API Status: ${res.status}`);
         const events = await res.json();
         displayEvents(events);
     } catch (err) {
-        // Fallback static data for GitHub Pages Preview
+        console.warn("API Fetch failed, using static fallback:", err);
+        // Fallback static data for Preview or missing backend
         const staticEvents = [
             { id: 1, title: 'Inception 15th Anniversary', category: 'Movie', price: 15, available_seats: 100, total_seats: 100, image_url: 'assets/movie.png' },
             { id: 2, title: 'Midnight Express - City to Coast', category: 'Bus', price: 25, available_seats: 38, total_seats: 40, image_url: 'assets/bus.png' },
