@@ -24,10 +24,7 @@ function checkAuth() {
 
 async function loadEvents() {
     const list = document.getElementById('event-list');
-    try {
-        const res = await fetch('/api/events');
-        const events = await res.json();
-
+    const displayEvents = (events) => {
         list.innerHTML = events.map(event => `
             <div class="event-card">
                 <img src="${event.image_url || 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80'}" class="event-img" alt="${event.title}">
@@ -42,8 +39,22 @@ async function loadEvents() {
                 </div>
             </div>
         `).join('');
+    };
+
+    try {
+        const res = await fetch('/api/events');
+        if (!res.ok) throw new Error('API unavailable');
+        const events = await res.json();
+        displayEvents(events);
     } catch (err) {
-        list.innerHTML = '<p>Failed to load events.</p>';
+        // Fallback static data for Preview or missing backend
+        const staticEvents = [
+            { id: 1, title: 'Inception 15th Anniversary', category: 'Movie', price: 15, available_seats: 100, total_seats: 100, image_url: 'assets/movie.png' },
+            { id: 2, title: 'Midnight Express - City to Coast', category: 'Bus', price: 25, available_seats: 38, total_seats: 40, image_url: 'assets/bus.png' },
+            { id: 3, title: 'Bullet Train: Northbound', category: 'Train', price: 45, available_seats: 300, total_seats: 300, image_url: 'assets/train.png' },
+            { id: 4, title: 'Starlight Symphony', category: 'Concert', price: 50, available_seats: 200, total_seats: 200, image_url: 'assets/concert.png' }
+        ];
+        displayEvents(staticEvents);
     }
 }
 
