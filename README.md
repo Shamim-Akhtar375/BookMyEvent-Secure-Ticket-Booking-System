@@ -1,6 +1,10 @@
 # BookMyEvent - Secure Ticket Booking System (SmartTicket)
 
 SmartTicket is a full-stack, production-ready web application for booking tickets for movies, buses, trains, and concerts. It features a modern premium UI with glassmorphism, smooth animations, and a secure backend.
+
+### 🔗 Live Preview (UI Showcase)
+[View the Live Demo on GitHub Pages](https://Shamim-Akhtar375.github.io/BookMyEvent-Secure-Ticket-Booking-System/)
+
 <img width="1872" height="891" alt="image" src="https://github.com/user-attachments/assets/cb838275-9cf3-485d-9b26-3a7af94f8cb3" />
 <img width="1767" height="710" alt="image" src="https://github.com/user-attachments/assets/2ed1f6b0-31cc-4670-9882-48574a40e532" />
 <img width="1086" height="565" alt="image" src="https://github.com/user-attachments/assets/d4654aa3-bb48-45b4-af9d-32be2196d163" />
